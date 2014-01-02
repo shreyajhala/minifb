@@ -1,0 +1,21 @@
+
+<center>
+	<h2>Create an Album</h2>
+<%= form_for( @album, method: :post, :html => { :multipart => true }) do |f| %>
+
+<%= notice %>
+<br><br>
+	<table>
+	<tr><td class ="lead">Album Name<br></td>
+		<td><%= f.text_field :name, :autofocus => true, :class => "input-lg", :placeholder => "Album Name" %></td></tr>
+	<tr><td class ="lead">Album scope</td>
+	<td class="lead"><%= f.select :privacy, options_for_select(%w[Public Friends Private]) %><br></td></tr>
+	<%= f.fields_for :photos do |builder| %>
+		<tr><td class ="lead">Photo Name</td><td><%= builder.text_field :name , :class => "input-lg",:placeholder => "Photo Name" %><br></td></tr>
+    	<tr><td class ="lead">Pic Location</td><td><%= builder.file_field :picture %></td><tr>
+    <% end %>
+<tr><td class="lead" ><%= f.submit "Create Album", :class => "btn btn-primary btn-large " %></h3></td></tr>
+<% end %>
+</table>
+<br /> 
+</center>

@@ -1,0 +1,11 @@
+<% unless @user == current_user %>
+		
+		<% if current_user.following?(@user) %>
+			
+			<%= link_to 'Un-Follow', user_follow_path(@user.to_param, current_user.get_follow(@user).id), :method => :delete, :remote => true, :class => 'btn btn-primary btn-large trialpaginate' %>
+		<% else %>
+
+			<%= link_to 'Follow', user_follows_path(@user.to_param), :method => :post, :remote => true, :class => 'btn btn-primary btn-large trialpaginate' %>
+		<% end %>
+
+<% end %>  

@@ -1,0 +1,10 @@
+<table>
+	<tr><th class="trialpaginate panel"><strong>
+	<%= link_to "Follows",  user_follow_path(@user.to_param, @user.id, :text => "followers"), {:style=>'color:#110022;'} %>
+
+    </strong></th><th></th><th class="trialpaginate panel">
+    <%= link_to "Followers", user_follow_path(@user.to_param, @user.id, :text => "follows"), {:style=>'color:#110022;'} %>
+	</th></tr>
+	<tr><td class="lead text-center"><%= pluralize( @user.follows.count, 'Person') %></td>
+	<td></td><td class="lead text-center"><%= pluralize( @user.followers.count, 'Person') %> </td></tr>
+</table>

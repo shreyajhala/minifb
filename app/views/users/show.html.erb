@@ -1,0 +1,18 @@
+<div class="col-lg-12 text-center v-center">
+	<p id="notice"><%= notice %> </p>
+	<center>
+	
+	<% if user_signed_in? %>
+		<%= render :partial => "shared/profile_pic" %><br><br>
+    	<%= render :partial => "shared/following_info" %>
+
+		<div id="follow_user"><%= render :partial => "shared/follow_user" %></div>
+		<%= render :partial => "shared/user_private_info" %>
+
+	<% end %>
+		<%= render :partial => "shared/user_public_info" %>
+	<% if user_signed_in? %>
+		<%= render :partial => "shared/friend_list" %>
+	<% end %>
+	</center>
+</div>

@@ -1,0 +1,17 @@
+<div class="col-lg-12 text-center v-center">
+	<h1> Facebook Albums</h1>
+	<% if @access_token %>
+  	<% @fb_albums.each do |album|%>
+	<div class="col-lg-12"><h3 class="lead"><%= album.name %><br></h3><br><div>
+	<div class="container">
+  		<div class="row">	
+			<% album.photos.each do |photo| %>
+				<div class="col-md-2">
+	    			<%= image_tag  photo.source, :size => "150x150" %><br><br>
+				</div>
+			<% end %>
+		</div>
+	</div>			
+	<% end %>
+	<% end %>
+</div>

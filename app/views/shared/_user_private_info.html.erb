@@ -1,0 +1,9 @@
+<table><tr> <td><h1><%= @user.username %>'s Profile</h1></td></tr></table>
+<table><tr><td>
+<h3>
+<%= link_to (image_tag "alb.png", :size => "50x50") + "    View Albums", user_albums_path(@user.id) , {:style=>'color:#DDCCEE;'}%></h3></td><td></td>
+<% if @user == current_user %>
+<td><h3><%= link_to "Create Albums", new_user_album_path(@user.id), {:style=>'color:#DDCCEE;'} %></h3></td>
+<% end %>
+</tr>
+</table>

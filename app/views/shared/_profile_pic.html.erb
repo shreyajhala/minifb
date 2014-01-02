@@ -1,0 +1,13 @@
+<table>
+<tr>
+<% if @user.oauth_token.nil? %>
+	<% if @user.avatar.exists? %>
+		<td><%= image_tag @user.avatar.url(:small) %>
+	<% else %>
+		<%= image_tag "avatar.jpeg", :size => "150x150" %>
+	<% end %>
+<% else %>
+	<%= image_tag "http://graph.facebook.com/#{@user.uid}/picture?type=large" %></td>
+<% end %>
+</tr>
+</table>

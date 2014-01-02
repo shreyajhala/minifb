@@ -1,0 +1,39 @@
+<div class="col-lg-12 text-center v-center"> 
+  <div class="col-lg-12 text-center v-center">
+    <% if !user_signed_in? %>
+       <h1>Roam Around..!! Have Fun.. :) </h1>
+       <h1>Search Your Friends</h1>
+    <% else %>
+       <h1>Search User</h1>
+    <% end %>
+  </div><br>
+
+  <div class="input-group" style="width:340px;margin:0 auto;">
+    <%= form_tag root_path, :method => 'get' do %>
+       <table><tr>
+         <td> <%= text_field_tag :search, params[:search],:autofocus => true, :class => "form-control input-lg", :placeholder => "Enter Username here" %>
+         </td>
+         <td><div><%= submit_tag "Search", :username => nil, :class => "btn btn-lg btn-primary" %></div></td></tr>
+       </table>
+         
+    <% end %>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="trialpaginate"> <%= will_paginate @user %> </div>
+      <% @user.each do |user| %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h3><%= link_to user.username, user_path(user), {:style=>'color:#110022;'} %></h3></div>
+          <div class="panel-body panelbodylead">
+            <b>Email Address :</b><%= user.email %><br>
+            <b>Location : </b><%= user.location %>
+          </div>
+        </div>
+      </div>   
+      <% end %>
+    </div> 
+   </div> 
+   
+</div>

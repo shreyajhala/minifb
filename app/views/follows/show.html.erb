@@ -1,0 +1,27 @@
+<div class="col-lg-12 text-center v-center">
+       <% if params[:text] == "followers" %>
+    <h1>Followers  Of <%= @user.username %> </h1>
+<% else %>
+    <h1><%= @user.username %> Follows  </h1>
+<% end %>
+<hr>
+<div class="container">
+   
+
+
+<% @following.each do |following| %>
+		<div class="col-md-4">
+            <div class="panel panel-default">
+                 <div class="panel-heading"><h3><%= link_to following.username, user_path(following), {:style=>'color:#110022;'} %></h3></div>
+                        <div class="panel-body panelbodylead">
+            	                 <b>Email Address :</b>
+                                 <%= following.email %><br>
+                                 <b>Location : </b>
+                                 <%= following.location %>
+                        </div>
+                 </div>
+             </div>   
+<% end %>
+</div>
+
+</div>

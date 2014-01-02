@@ -1,0 +1,18 @@
+<h3 class="lead">Total photos :  <%= @album.photos.count %></h3>
+<div class="container">
+  <div class="row">
+     <% @photos.each do |photo| %>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h3><%= photo.name %></h3></div>
+          <div class="panel-body panelbodylead">
+            <%= image_tag photo.picture.url(:small) %><br><br>
+              <% if @user == current_user %>
+                <%= link_to  "Remove", user_album_photo_path(current_user.id,@album.id,photo.id), method: :delete, :confirm => "Are you sure..?" ,class: "btn btn-primary btn-danger" %>
+              <% end %>
+          </div>
+        </div>
+      </div>   
+     <% end %>
+  </div> 
+</div>  
