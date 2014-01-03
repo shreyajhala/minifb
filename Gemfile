@@ -14,7 +14,7 @@ gem 'acts_as_follower'
 gem 'fb_graph'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Use SCSS for stylesheets
