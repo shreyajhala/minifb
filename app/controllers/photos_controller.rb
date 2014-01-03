@@ -19,8 +19,4 @@ class PhotosController < ApplicationController
 		@photo.destroy;
 		redirect_to user_album_photos_path(current_user.id,@album.id)
 	end
-
-	def show
-		
-	end
 end

@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
 	validates :picture, presence: true
+	validates :name, presence: true
 	belongs_to :album
 
 	attr_reader :picture_remote_url
